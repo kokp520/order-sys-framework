@@ -1,0 +1,877 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Asthir\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-05 06:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.2; wp-5.7.1\n"
+"X-Domain: asthir"
+
+#: inc/about/about.php:171
+msgid " Pro"
+msgstr ""
+
+#. %d: ID of a post.
+#: inc/class-asthir-walker-page.php:70
+#, php-format
+msgid "#%d (no title)"
+msgstr ""
+
+#: inc/about/about.php:33
+#, php-format
+msgid ""
+"%1$s is now installed and ready to use. We want to make sure you have the "
+"best experience using the theme and that is why we gathered here all the "
+"necessary information for you. Thanks for using our theme!"
+msgstr ""
+
+#: inc/about/about.php:26 inc/about/about.php:28
+#, php-format
+msgid "%s Info"
+msgstr ""
+
+#. number of items in the mini cart.
+#: inc/asthir-woocommerce.php:57
+#, php-format
+msgid "(%d)"
+msgid_plural "(%d)"
+msgstr[0] ""
+msgstr[1] ""
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:63
+msgid ", "
+msgstr ""
+
+#: inc/about/about.php:292
+msgid ""
+"<strong> Good News!! Asthir pro version now available.</br> Asthir Pro "
+"version has six different blog layouts, Eight different product layouts. Pro "
+"version has a huge options panel and Elementor advanced addons with posts "
+"and product slider.Asthir pro version also has different products style and "
+"effects. Pro Version has many more options. So why late? upgrade today...."
+"</strong> "
+msgstr ""
+
+#: inc/about/about.php:117 inc/about/about.php:150
+msgid "Activate"
+msgstr ""
+
+#: inc/about/class.about.php:826
+msgid "Activating"
+msgstr ""
+
+#: functions.php:161
+msgid "Add Footer widgets here."
+msgstr ""
+
+#: inc/asthir-woocommerce.php:124
+msgid "Add shop widgets here."
+msgstr ""
+
+#: inc/about/about.php:87
+msgid "Add Widgets"
+msgstr ""
+
+#: functions.php:139
+msgid "Add widgets here for left sidebar."
+msgstr ""
+
+#: functions.php:150
+msgid "Add widgets here for right sidebar."
+msgstr ""
+
+#: inc/about/about.php:244
+msgid ""
+"Advance control for each element gives you different way of customization "
+"and maintained you site as you like and makes you feel different."
+msgstr ""
+
+#: inc/about/about.php:243
+msgid "Advance Customizer Options"
+msgstr ""
+
+#: inc/about/about.php:249
+msgid "Advance Pagination"
+msgstr ""
+
+#: inc/about/about.php:114
+msgid "Already activated"
+msgstr ""
+
+#. Name of the theme
+msgid "Asthir"
+msgstr ""
+
+#: inc/about/about.php:202
+msgid ""
+"Asthir comes with a widget-based flexible system which allows you to add "
+"your favorite widgets over the Sidebar as well as on offcanvas too."
+msgstr ""
+
+#: inc/customizer/customizer.php:356
+msgid "Asthir Footer Settings"
+msgstr ""
+
+#: inc/about/about.php:196
+msgid ""
+"Asthir gives you extra slider feature. You can create awesome home slider in "
+"this theme."
+msgstr ""
+
+#: inc/about/about.php:208
+msgid ""
+"Asthir gives you extra ways to showcase your header with miltiple layout "
+"option you can change it on the basis of your requirement"
+msgstr ""
+
+#: inc/customizer/customizer.php:283
+msgid "Asthir Header"
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"Asthir is a new WordPress Shop and Blog Theme. Asthir is flexible, easily "
+"customizable, super fast, lightweight and a modern WordPress theme. It "
+"provides a very unique look with extra post layout. Asthir is a super fast "
+"WordPress theme. Best Suitable for creating any type of website such a blog, "
+"shop, store, car workshop, life coach,  barbershop, furniture shop, yoga, "
+"resume, charity, digital marketing, agency, etc. Asthir works with any of "
+"your favorite page builders like Elementor, Visual Composer, SiteOrigin, "
+"Divi, Brizy etc."
+msgstr ""
+
+#: inc/about/about.php:184
+msgid ""
+"Asthir makes room for your readers to enjoy your articles on the go, no "
+"matter the device their using. We shaped everything to look amazing to your "
+"audience."
+msgstr ""
+
+#: inc/about/about.php:296
+msgid "Asthir Pro Details"
+msgstr ""
+
+#: inc/about/about.php:214
+msgid ""
+"Asthir PRO version comes with posts & products Slider options to display and "
+"filter posts & products. For instance, you can have far more control on "
+"setting the source of the posts or how they are displayed, everything to "
+"push the content to the right people and promote it by the blink of an eye."
+msgstr ""
+
+#: inc/about/about.php:238
+msgid ""
+"Asthir Pro version has eight different shop layouts. So you can easily setup "
+"your shop website layout in many different ways."
+msgstr ""
+
+#: inc/about/about.php:232
+msgid ""
+"Asthir Pro version has six different blog layouts. So you can easily setup "
+"your website layout in many different ways."
+msgstr ""
+
+#: inc/about/about.php:190
+msgid ""
+"Asthir theme support the Woocommerce plugin. So you can easily create a shop "
+"website with Asthir theme."
+msgstr ""
+
+#: inc/customizer/customizer.php:28
+msgid "Asthir Theme typography"
+msgstr ""
+
+#: inc/customizer/customizer.php:150
+msgid "Asthir Top bar"
+msgstr ""
+
+#: inc/about/about.php:178
+msgid ""
+"Asthir's design helps you stand out from the crowd and create an experience "
+"that your readers will love and talk about. With a flexible home page you "
+"have the chance to easily showcase appealing content with ease."
+msgstr ""
+
+#: inc/about/about.php:226
+msgid ""
+"Asthir's PRO version has more controll available to enable you to place "
+"widgets on Footer or Below the Post at the end of your articles."
+msgstr ""
+
+#: inc/customizer/customizer.php:86
+msgid "Body font line height"
+msgstr ""
+
+#: inc/customizer/customizer.php:71
+msgid "Body font size"
+msgstr ""
+
+#: inc/customizer/customizer.php:142
+msgid "Bold"
+msgstr ""
+
+#: inc/plugin-recomend.php:83
+msgid "Click to top"
+msgstr ""
+
+#: inc/asthir-woocommerce.php:107
+msgid "Close"
+msgstr ""
+
+#: inc/header-action/header-style.php:17 inc/header-action/header-style.php:47
+msgid "Close Menu"
+msgstr ""
+
+#: comments.php:68
+msgid "Comments are closed."
+msgstr ""
+
+#. 1: comment count number, 2: title.
+#: comments.php:41
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/about/about.php:102 inc/about/about.php:105
+msgid "Contact Support"
+msgstr ""
+
+#. %s: Name of current post. Only visible to screen readers
+#: template-parts/content-single.php:45
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: inc/about/about.php:79
+msgid "Customize"
+msgstr ""
+
+#: inc/about/about.php:177
+msgid "Daring Design for Devoted Readers"
+msgstr ""
+
+#: inc/about/about.php:118 inc/about/about.php:151
+msgid "Deactivate"
+msgstr ""
+
+#: inc/customizer/customizer.php:72
+msgid "Default body font size is 14px"
+msgstr ""
+
+#: inc/customizer/customizer.php:87
+msgid "Default body line height is 24px"
+msgstr ""
+
+#: inc/about/about.php:66
+msgid "Demo Content"
+msgstr ""
+
+#: inc/about/about.php:68
+#, php-format
+msgid ""
+"Demo content is pro feature. To import sample demo content, %1$s plugin "
+"should be installed and activated. After plugin is activated, visit Import "
+"Demo Data menu under Appearance."
+msgstr ""
+
+#: inc/about/about.php:296
+msgid "Dismiss the notice"
+msgstr ""
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:100 template-parts/content-page.php:39
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: inc/about/about.php:237
+msgid "Eight Diffrent Shop Layout."
+msgstr ""
+
+#: inc/plugin-recomend.php:68
+msgid "Elementor"
+msgstr ""
+
+#: inc/about/about.php:219
+msgid "Elementor Advanced Addons"
+msgstr ""
+
+#: inc/about/about.php:220
+msgid ""
+"Elementor now most popular page builder. You will get advanced Elementor "
+"addons with Ashthir Pro version. "
+msgstr ""
+
+#: inc/customizer/customizer.php:198
+msgid ""
+"Enter your website welcome text. Leave empty if you don't want the text."
+msgstr ""
+
+#: inc/customizer/customizer.php:143
+msgid "Extra Bold"
+msgstr ""
+
+#: inc/about/about.php:225
+msgid "Flexible Home Page Design"
+msgstr ""
+
+#: inc/customizer/customizer.php:372
+msgid "Footer background color."
+msgstr ""
+
+#: inc/customizer/customizer.php:402
+msgid "Footer Link Hover color."
+msgstr ""
+
+#: inc/customizer/customizer.php:387
+msgid "Footer text color."
+msgstr ""
+
+#: functions.php:159
+msgid "Footer Widget"
+msgstr ""
+
+#: inc/about/about.php:40
+msgid "Free Vs Pro"
+msgstr ""
+
+#: inc/customizer/customizer.php:186
+msgid "Full width Container"
+msgstr ""
+
+#: inc/plugin-recomend.php:88
+msgid "Gallery Box"
+msgstr ""
+
+#. View link
+#: inc/about/about.php:174
+#, php-format
+msgid "Get %s"
+msgstr ""
+
+#: inc/about/about.php:37
+msgid "Getting Started"
+msgstr ""
+
+#: inc/info/class-customize.php:77
+msgid "Go Pro"
+msgstr ""
+
+#: inc/about/about.php:104
+msgid ""
+"Got theme support question or found bug or got some feedbacks? Best place to "
+"ask your query is the dedicated Support forum for the theme."
+msgstr ""
+
+#: inc/about/about.php:195
+msgid "Home slider"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://profiles.wordpress.org/nalam-1/"
+msgstr ""
+
+#: footer.php:27
+msgid "https://wordpress.org/"
+msgstr ""
+
+#. URI of the theme
+msgid "https://wpthemespace.com/product/asthir"
+msgstr ""
+
+#: inc/about/about.php:116 inc/about/about.php:149
+msgid "Install and Activate"
+msgstr ""
+
+#: 404.php:22
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: template-parts/content-none.php:45
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: inc/customizer/customizer.php:57 inc/customizer/customizer.php:116
+msgid "Lato"
+msgstr ""
+
+#. %s: post title
+#: inc/template-tags.php:83
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: functions.php:137
+msgid "Left Sidebar"
+msgstr ""
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:70
+msgctxt "list item separator"
+msgid ", "
+msgstr ""
+
+#: inc/customizer/customizer.php:322
+msgid "Logo center"
+msgstr ""
+
+#: inc/customizer/customizer.php:321
+msgid "Logo left"
+msgstr ""
+
+#: inc/customizer/customizer.php:316
+msgid "Logo Position"
+msgstr ""
+
+#: inc/customizer/customizer.php:323
+msgid "Logo right"
+msgstr ""
+
+#: inc/plugin-recomend.php:73
+msgid "Magical Addons"
+msgstr ""
+
+#: inc/about/about.php:154
+msgid "Magical Blocks"
+msgstr ""
+
+#: inc/plugin-recomend.php:78
+msgid "Magical Posts Display"
+msgstr ""
+
+#: inc/customizer/customizer.php:334
+msgid "Main menu Position"
+msgstr ""
+
+#: inc/header-action/header-style.php:17
+msgid "Menu"
+msgstr ""
+
+#: inc/customizer/customizer.php:340
+msgid "Menu center"
+msgstr ""
+
+#: inc/customizer/customizer.php:339
+msgid "Menu left"
+msgstr ""
+
+#: inc/customizer/customizer.php:341
+msgid "Menu right"
+msgstr ""
+
+#: inc/about/about.php:183
+msgid "Mobile-Ready For All Devices"
+msgstr ""
+
+#: inc/customizer/customizer.php:58 inc/customizer/customizer.php:117
+msgid "Montserrat"
+msgstr ""
+
+#: inc/about/about.php:207
+msgid "Multiple Header Layout"
+msgstr ""
+
+#: inc/about/about.php:250
+msgid ""
+"Multiple Option of pagination via customizer can be obtained on your site "
+"like Infinite scroll, Ajax Button On Click, Number as well as classical "
+"option are available."
+msgstr ""
+
+#: single.php:34
+msgid "Next:"
+msgstr ""
+
+#: inc/about/about.php:267
+msgid "No Credit Footer Link"
+msgstr ""
+
+#. Author of the theme
+msgid "Noor Alam"
+msgstr ""
+
+#: inc/customizer/customizer.php:140
+msgid "Normal"
+msgstr ""
+
+#: template-parts/content-none.php:15
+msgid "Nothing Found"
+msgstr ""
+
+#: inc/info/class-customize.php:76
+msgid "Now Available Asthir Pro"
+msgstr ""
+
+#: inc/about/about.php:155
+msgid ""
+"Now you can add or update your site elements very easily by Magical Blocks. "
+"Supercharge your Gutenberg block with highly customizable Magical Blocks For "
+"Gutenberg."
+msgstr ""
+
+#: inc/about/about.php:68
+msgid "One Click Demo Import"
+msgstr ""
+
+#: inc/about/about.php:255
+msgid "One Click Demo install"
+msgstr ""
+
+#. 1: title.
+#: comments.php:35
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: 404.php:18
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: inc/customizer/customizer.php:56 inc/customizer/customizer.php:115
+msgid "Open Sans"
+msgstr ""
+
+#: template-parts/content-page.php:25 template-parts/content-single.php:58
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-single.php:13
+msgid "PINNED POST"
+msgstr ""
+
+#: inc/customizer/customizer.php:54 inc/customizer/customizer.php:113
+msgid "Poppins"
+msgstr ""
+
+#. %s: post author.
+#: inc/template-tags.php:46
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. %s: post date.
+#: inc/template-tags.php:30
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#. 1: list of categories.
+#: inc/template-tags.php:66
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: inc/about/about.php:213
+msgid "Posts & Products Slider Options"
+msgstr ""
+
+#: footer.php:28
+msgid "Powered by WordPress"
+msgstr ""
+
+#: inc/about/about.php:261
+msgid "Premium Support and Assistance"
+msgstr ""
+
+#: single.php:33
+msgid "Previous:"
+msgstr ""
+
+#: functions.php:54
+msgid "Primary"
+msgstr ""
+
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:25
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: inc/about/about.php:38
+msgid "Recommended Actions"
+msgstr ""
+
+#: functions.php:148
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/customizer/customizer.php:55 inc/customizer/customizer.php:114
+msgid "Roboto"
+msgstr ""
+
+#. %s: search query.
+#: search.php:41
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/customizer/customizer.php:109
+msgid "Select Header Tag Font"
+msgstr ""
+
+#: inc/customizer/customizer.php:50
+msgid "Select theme body Font"
+msgstr ""
+
+#: inc/customizer/customizer.php:141
+msgid "Semi Bold"
+msgstr ""
+
+#: inc/about/about.php:84
+msgid "Set Widgets"
+msgstr ""
+
+#: inc/about/about.php:86
+msgid "Set widgets in your sidebar, Offcanvas as well as footer."
+msgstr ""
+
+#: inc/asthir-woocommerce.php:122
+msgid "Shop Sidebar"
+msgstr ""
+
+#: inc/asthir-woocommerce.php:94
+msgid "Shopping Cart "
+msgstr ""
+
+#: inc/customizer/customizer.php:211
+msgid "Show header topbar menu? "
+msgstr ""
+
+#: inc/customizer/customizer.php:226
+msgid "Show header topbar search? "
+msgstr ""
+
+#: inc/customizer/customizer.php:164
+msgid "Show header topbar? "
+msgstr ""
+
+#: inc/customizer/customizer.php:136
+msgid "Site header font weight"
+msgstr ""
+
+#: inc/customizer/customizer.php:298
+msgid "Site Header Style"
+msgstr ""
+
+#: inc/about/about.php:231
+msgid "Six Diffrent Blog Layout."
+msgstr ""
+
+#: header.php:25
+msgid "Skip to content"
+msgstr ""
+
+#: template-parts/content-none.php:38
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: inc/customizer/customizer.php:185
+msgid "Standard Container"
+msgstr ""
+
+#: inc/customizer/customizer.php:303
+msgid "Style One"
+msgstr ""
+
+#: inc/customizer/customizer.php:304
+msgid "Style Two"
+msgstr ""
+
+#. 1: list of tags.
+#: inc/template-tags.php:73
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: inc/customizer/customizer.php:285
+msgid "The Asthir theme main header settings options "
+msgstr ""
+
+#: inc/customizer/customizer.php:358
+msgid "The beshop footer settings options "
+msgstr ""
+
+#: inc/customizer/customizer.php:152
+msgid "The beshop topbar options "
+msgstr ""
+
+#: inc/about/about.php:76
+msgid "Theme Options"
+msgstr ""
+
+#: inc/about/about.php:93
+msgid "Theme Preview"
+msgstr ""
+
+#: inc/about/about.php:113
+msgid ""
+"Theme supports some helpful WordPress plugins to enhance your site. But, "
+"please enable only those plugins which you need in your site. For example, "
+"enable WooCommerce only if you are using e-commerce."
+msgstr ""
+
+#: inc/about/about.php:78
+msgid ""
+"Theme uses Customizer API for theme options. Using the Customizer you can "
+"easily customize different aspects of the theme."
+msgstr ""
+
+#. 1: Theme name, 2: Theme author.
+#: footer.php:33
+#, php-format
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: functions.php:53
+msgid "Top Menu"
+msgstr ""
+
+#: inc/customizer/customizer.php:243
+msgid "Topbar Background Color"
+msgstr ""
+
+#: inc/customizer/customizer.php:179
+msgid "Topbar Container Type"
+msgstr ""
+
+#: inc/customizer/customizer.php:275
+msgid "Topbar link hover Color"
+msgstr ""
+
+#: inc/customizer/customizer.php:259
+msgid "Topbar text Color"
+msgstr ""
+
+#: inc/about/about.php:46 inc/about/about.php:160
+msgid "UPGRADE ASTHIR PRO"
+msgstr ""
+
+#: inc/about/about.php:69
+msgid "UPGRADE For  Demo Content"
+msgstr ""
+
+#: inc/about/about.php:296
+msgid "Upgrade Pro"
+msgstr ""
+
+#: inc/about/about.php:39
+msgid "Useful Plugins"
+msgstr ""
+
+#: inc/about/about.php:115
+msgid "Version: "
+msgstr ""
+
+#: inc/about/about.php:96
+msgid "View Demo"
+msgstr ""
+
+#: inc/about/about.php:56
+msgid "View Details"
+msgstr ""
+
+#: inc/about/about.php:51
+msgid "View Pro Demo"
+msgstr ""
+
+#: inc/about/about.php:262
+msgid ""
+"We offer ongoing customer support to help you get things done in due time. "
+"This way, you save energy and time, and focus on what brings you happiness. "
+"We know our products inside-out and we can lend a hand to help you save "
+"resources of all kinds."
+msgstr ""
+
+#: inc/customizer/customizer.php:197
+msgid "Welcome text"
+msgstr ""
+
+#. Main welcome title
+#: inc/about/about.php:30
+#, php-format
+msgid "Welcome to %s! - Version "
+msgstr ""
+
+#: inc/customizer/customizer.php:192 inc/header-action/header-top.php:15
+msgid "Welcome to Our Website"
+msgstr ""
+
+#: inc/about/about.php:201
+msgid "Widgetized Sidebars To Keep Attention"
+msgstr ""
+
+#: inc/plugin-recomend.php:63
+msgid "Woocommerce"
+msgstr ""
+
+#: inc/about/about.php:189
+msgid "Woocommerce Support"
+msgstr ""
+
+#: inc/about/about.php:95
+msgid ""
+"You can check out the theme demos for reference to find out what you can "
+"achieve using the theme and how it can be customized. Theme demo only work "
+"in pro theme"
+msgstr ""
+
+#: inc/about/about.php:268
+msgid ""
+"You can easily remove the Theme: Asthir by asthir copyright from the footer "
+"area and make the theme yours from start to finish."
+msgstr ""
+
+#: inc/about/about.php:256
+msgid ""
+"You can import demo site only one click so you can setup your site like demo "
+"very easily."
+msgstr ""
+
+#: inc/customizer/customizer.php:180
+msgid "You can set standard container or full width container. "
+msgstr ""
+
+#: inc/customizer/customizer.php:30
+msgid "You can setup Asthir theme typography by these options."
+msgstr ""
+
+#: inc/customizer/customizer.php:165
+msgid "You can show or hide header topbar."
+msgstr ""
+
+#: inc/customizer/customizer.php:212
+msgid ""
+"You can show or hide topbar menu. You need to add menu from menu section for "
+"display menu."
+msgstr ""
+
+#: inc/customizer/customizer.php:227
+msgid "You can show or hide topbar search."
+msgstr ""
+
+#: inc/about/about.php:161
+msgid ""
+"You will get more frequent updates and quicker support with the Pro version."
+msgstr ""

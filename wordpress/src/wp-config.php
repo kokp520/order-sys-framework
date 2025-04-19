@@ -89,7 +89,8 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+define('WP_REDIS_HOST', 'local-redis');
+define('WP_CACHE', true);
 
 /* That's all, stop editing! Happy publishing. */
 

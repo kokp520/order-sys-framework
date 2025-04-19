@@ -1,0 +1,363 @@
+body {
+  font-family: "Oxygen", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+a{
+  text-decoration: underline;
+}
+:focus-visible {
+  outline: 2px solid #315ff8;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  letter-spacing: inherit;
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+section.widget{
+  min-height: 100px;
+}
+.shop-asthir-col.col-lg-auto {
+  margin-left: auto;
+}
+.widget form {
+  width: 100%;
+}
+.widget-area .widget{
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+@media screen and (max-width: 992px) {
+  .asthir-logotext.text-center {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+  }
+  .asthir-logotext p.site-description {
+    text-align: left;
+    padding: 5px 0;
+    color: #fff;
+  }
+    .wsm-menu nav div>ul{
+      max-width: 100%;
+    }
+}
+.asthir-finfo a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.asthir-finfo a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product,
+.woocommerce ul.products li.product a img{
+  border-radius: 0;
+}
+.woocommerce span.onsale{
+  background: #000;
+}
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product{
+  text-align: left;
+  box-shadow: inherit;
+  padding: 0 0 10px;
+}
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce a.added_to_cart {
+  color: #000;
+  background-color: transparent;
+  padding: 0;
+  text-decoration: underline !important;
+}
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce a.added_to_cart{
+  background: transparent !important;
+  margin-right: 10px;
+}
+.bsgrid-item .bshop-single-list {
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bsgrid-item .bshop-single-list:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.asthir-main-nav.bg-dark.text-white {
+  background: #fff !important;
+  color: #000 !important;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+.asthir-main-nav.bg-dark.text-white ul li a {
+  color: #000;
+  border-color: #ededed;
+  padding: 0 20px;
+  font-weight: 500;
+}
+
+.asthir-main-nav.bg-dark.text-white ul li {
+  padding: 15px 0;
+}
+
+.asthir-main-nav.bg-dark.text-white ul li a:hover {
+  opacity: 0.7;
+}
+html body .main-navigation ul ul {
+  background: #e6e6e6;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+/* Post thumbnail styling */
+.bshop-single-list .post-thumbnail {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.bshop-single-list .post-thumbnail img {
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.bshop-single-list:hover .post-thumbnail img {
+  transform: scale(1.05);
+}
+
+/* Grid Layout */
+.asthir-shop-article-grid {
+  margin-bottom: 40px;
+}
+
+/* Article Card */
+.bsgrid-item{
+  margin-bottom: 40px;
+}
+.asthir-shop-grid-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.asthir-shop-grid-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Article Image */
+.asthir-shop-article-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.asthir-shop-article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.asthir-shop-grid-item:hover .asthir-shop-article-image img {
+  transform: scale(1.05);
+}
+
+/* Article Content */
+.asthir-shop-article-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 15px 20px 10px;
+  line-height: 1.3;
+}
+
+.asthir-shop-article-title a {
+  color: #000;
+  text-decoration: none;
+}
+
+.asthir-shop-article-title a:hover {
+  color: #555;
+}
+
+.asthir-shop-article-excerpt {
+  padding: 0 20px;
+  color: #555;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Article Meta Info */
+.asthir-shop-article-meta {
+  padding: 0 20px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 14px;
+  color: #777;
+  margin-top: auto;
+}
+.asthir-shop-article-meta a {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: 13px;
+}
+.asthir-shop-article-meta a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+.asthir-shop-article-category {
+  display: inline-block;
+  background-color: #f2f2f2;
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.asthir-shop-article-author {
+  margin-right: 5px;
+}
+
+.asthir-shop-article-date {
+  color: #999;
+  position: relative;
+  padding-left: 12px;
+  margin-left: 2px;
+  border-left: 2px solid #ededed;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .asthir-shop-article-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .asthir-shop-article-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .asthir-shop-article-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+nav.navigation.pagination .nav-links a,
+nav.navigation.pagination .nav-links span {
+  border: 1px solid #ededed;
+  padding: 5px 10px;
+  margin: 10px 2px;
+}
+nav.navigation.pagination .nav-links a:hover,
+nav.navigation.pagination .nav-links span:hover {
+  background: #ededed;
+}
+nav.navigation.pagination {
+  display: block;
+  text-align: center;
+  padding: 20px 0;
+}
+.asthir-widgets2 section.widget {
+  margin-bottom: 40px;
+}
+.asthir-header .asthir-nav-logo .site-title a {
+  font-size: 28px;
+  color: #000000;
+  text-decoration: inherit;
+}
+.asthir-header .asthir-nav-logo .site-description {
+  padding: 0;
+  margin: 0 0 5px 0;
+  font-size: 16px;
+}
+.asthir-header .asthir-nav-logo .site-title {
+  margin-bottom: 0;
+}
+.asthir-nav-logo .row {
+  align-items: center;
+}
+.site-info a,
+.site-info {
+  color: #fff;
+}
+@media screen and (max-width: 992px) {
+  .asthir-nav-logo {
+    position: relative;
+  }
+
+  .asthir-plus-col {
+    position: inherit;
+  }
+
+  .menu-main-menu-container {
+    background: #555;
+    z-index: 9999;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .asthir-nav-logo .menu-main-menu-container {
+    text-align: left;
+  }
+  .asthir-nav-logo .main-navigation.text-right {
+    text-align: center !important;
+  }
+
+  .asthir-nav-logo .asthir-logotext.asthir-menulogo {
+    text-align: center !important;
+    margin-bottom: 10px;
+  }
+}
+form#commentform input#submit {
+  display: inline-block;
+  width: auto;
+  padding: 10px 30px;
+  background: #000;
+  color: #fff;
+}
+footer.asthir-mfooter,
+.footer-widget,
+.footer-top.mt-5.pb-5.pt-5.bg-dark {
+  background: #f9f9f9 !important;
+  color: #000 !important;
+}
+.asthir-mfooter,
+.asthir-mfooter a,
+.footer-widget,
+.footer-widget p,
+.footer-widget a,
+.footer-widget #wp-calendar caption,
+.footer-widget .search-form input.search-submit {
+  color: #000000 !important;
+}

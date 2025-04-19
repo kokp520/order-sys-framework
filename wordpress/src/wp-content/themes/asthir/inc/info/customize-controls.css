@@ -1,0 +1,27 @@
+#customize-controls .control-section-asthir-pro .accordion-section-title:hover,
+#customize-controls .control-section-asthir-pro .accordion-section-title:focus {
+	background-color: #fff;
+}
+
+.control-section-asthir-pro .accordion-section-title .button {
+	margin-top:  -4px;
+	font-weight: 400;
+	margin-left: 8px;
+	background: #007cba;
+	color: #fff;
+}
+li#accordion-section-asthir_pro h3 {
+    background: #555!important;
+    color: #fff !important;
+}
+input#_customize-input-footer_copy_text_control {
+    display: none;
+}
+
+	.rtl .control-section-asthir-pro .accordion-section-title .button {
+		margin-left:  0;
+		margin-right: 8px;
+	}
+	li#accordion-section-asthir_pro {
+		display: block !important;
+	}
