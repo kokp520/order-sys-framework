@@ -624,20 +624,440 @@ function generate_woocommerce_products_multi($num_products = 1000, $num_processe
 }
 
 // 解析命令行參數 (如果有)
-$num_products = 1000; // 預設生成1000個商品
-$num_processes = 4;   // 預設使用4個進程
+// $num_products = 1000; // 預設生成1000個商品
+// $num_processes = 4;   // 預設使用4個進程
+
+// if (isset($argv) && count($argv) > 1) {
+//     // 如果指定了商品數量
+//     if (isset($argv[1]) && is_numeric($argv[1])) {
+//         $num_products = (int)$argv[1];
+//     }
+    
+//     // 如果指定了進程數量
+//     if (isset($argv[2]) && is_numeric($argv[2])) {
+//         $num_processes = (int)$argv[2];
+//     }
+// }
+
+// // 執行多進程生成程序 (靜默模式)
+// generate_woocommerce_products_multi($num_products, $num_processes); 
+
+/**
+ * 直接操作數據庫生成訂單資料 (支援 WooCommerce HPOS)
+ * 當需要生成非常大量訂單時，繞過 WC_Order API 以提高性能
+ * 支援新的 HPOS (高性能訂單存儲) 資料表結構
+ * 注意：此方法僅適用於測試環境，因為它直接操作數據庫
+ */
+function create_order_direct_db_hpos($product_ids) {
+    global $wpdb;
+    
+    // 生成顧客資料
+    $customer_data = generate_customer_data();
+    
+    // 訂單狀態
+    $statuses = ['pending', 'processing', 'on-hold', 'completed', 'cancelled', 'refunded', 'failed'];
+    $weights = [15, 30, 10, 35, 5, 3, 2]; // 各狀態的權重
+    $status = random_weighted_element($statuses, $weights);
+    
+    // 訂單日期
+    $days_ago = rand(1, 365); // 過去一年內的訂單
+    $date = date('Y-m-d H:i:s', strtotime("-{$days_ago} days") + rand(0, 86400));
+    $date_gmt = get_gmt_from_date($date);
+    
+    // 隨機總額和稅額
+    $order_total = 0;
+    $tax_amount = 0;
+    
+    // 1. 插入到 wp_wc_orders 表
+    $wpdb->insert(
+        $wpdb->prefix . 'wc_orders',
+        [
+            'status'               => $status,
+            'currency'             => 'TWD',
+            'type'                 => 'shop_order',
+            'tax_amount'           => $tax_amount,
+            'total_amount'         => $order_total, // 暫時設為0，後面會更新
+            'customer_id'          => 0, // 訪客購買
+            'billing_email'        => $customer_data['email'],
+            'date_created_gmt'     => $date_gmt,
+            'date_updated_gmt'     => $date_gmt,
+            'parent_order_id'      => 0,
+            'payment_method'       => 'cod',
+            'payment_method_title' => '貨到付款',
+            'ip_address'           => rand(1, 255) . '.' . rand(0, 255) . '.' . rand(0, 255) . '.' . rand(0, 255),
+            'user_agent'           => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+            'customer_note'        => '',
+        ]
+    );
+    
+    $order_id = $wpdb->insert_id;
+    
+    if (!$order_id) {
+        return false;
+    }
+    
+    // 2. 添加帳單地址
+    $wpdb->insert(
+        $wpdb->prefix . 'wc_order_addresses',
+        [
+            'order_id'     => $order_id,
+            'address_type' => 'billing',
+            'first_name'   => $customer_data['first_name'],
+            'last_name'    => $customer_data['last_name'],
+            'company'      => '',
+            'address_1'    => $customer_data['address']['address_1'],
+            'address_2'    => $customer_data['address']['address_2'],
+            'city'         => $customer_data['address']['city'],
+            'state'        => '',
+            'postcode'     => $customer_data['address']['postcode'],
+            'country'      => 'TW',
+            'email'        => $customer_data['email'],
+            'phone'        => $customer_data['phone'],
+        ]
+    );
+    
+    // 3. 添加送貨地址
+    $wpdb->insert(
+        $wpdb->prefix . 'wc_order_addresses',
+        [
+            'order_id'     => $order_id,
+            'address_type' => 'shipping',
+            'first_name'   => $customer_data['first_name'],
+            'last_name'    => $customer_data['last_name'],
+            'company'      => '',
+            'address_1'    => $customer_data['address']['address_1'],
+            'address_2'    => $customer_data['address']['address_2'],
+            'city'         => $customer_data['address']['city'],
+            'state'        => '',
+            'postcode'     => $customer_data['address']['postcode'],
+            'country'      => 'TW',
+            'email'        => $customer_data['email'],
+            'phone'        => $customer_data['phone'],
+        ]
+    );
+    
+    // 4. 添加訂單操作數據
+    $wpdb->insert(
+        $wpdb->prefix . 'wc_order_operational_data',
+        [
+            'order_id'                    => $order_id,
+            'created_via'                 => 'admin',
+            'woocommerce_version'         => '8.0.0',
+            'prices_include_tax'          => 0,
+            'coupon_usages_are_counted'   => 0,
+            'download_permission_granted' => 0,
+            'cart_hash'                   => '',
+            'new_order_email_sent'        => 1,
+            'order_key'                   => 'wc_order_' . generate_random_string(13),
+            'order_stock_reduced'         => 1,
+            'date_paid_gmt'               => $status == 'completed' ? $date_gmt : null,
+            'date_completed_gmt'          => $status == 'completed' ? date('Y-m-d H:i:s', strtotime($date_gmt) + rand(7200, 86400 * 5)) : null,
+            'shipping_tax_amount'         => 0,
+            'shipping_total_amount'       => 0, // 暫時設為0，後面會更新
+            'discount_tax_amount'         => 0,
+            'discount_total_amount'       => 0,
+            'recorded_sales'              => 1,
+        ]
+    );
+    
+    // 5. 添加訂單元數據
+    $meta_data = [
+        '_order_number'         => $order_id,
+        '_order_version'        => '8.0.0',
+        '_price_decimals'       => '0',
+        '_order_currency'       => 'TWD',
+        '_ywot_order_tracking'  => '',
+    ];
+    
+    foreach ($meta_data as $meta_key => $meta_value) {
+        $wpdb->insert(
+            $wpdb->prefix . 'wc_orders_meta',
+            [
+                'order_id'   => $order_id,
+                'meta_key'   => $meta_key,
+                'meta_value' => $meta_value
+            ]
+        );
+    }
+    
+    // 6. 添加訂單項目 (商品)
+    $item_count = rand(1, 5); // 每個訂單1-5件商品
+    
+    for ($i = 0; $i < $item_count; $i++) {
+        // 隨機選擇一個商品
+        $product_id = $product_ids[array_rand($product_ids)];
+        $item_price = rand(100, 2000);
+        $item_qty = rand(1, 3);
+        $item_total = $item_price * $item_qty;
+        $order_total += $item_total;
+        
+        // 插入到訂單項目表
+        $wpdb->insert(
+            $wpdb->prefix . 'woocommerce_order_items',
+            [
+                'order_id' => $order_id,
+                'order_item_name' => '測試商品 #' . $product_id,
+                'order_item_type' => 'line_item'
+            ]
+        );
+        
+        $order_item_id = $wpdb->insert_id;
+        
+        // 插入訂單項目元數據
+        $item_meta_data = [
+            '_product_id'    => $product_id,
+            '_variation_id'  => 0,
+            '_qty'           => $item_qty,
+            '_tax_class'     => '',
+            '_line_subtotal' => $item_total,
+            '_line_total'    => $item_total,
+            '_line_subtotal_tax' => 0,
+            '_line_tax'      => 0,
+            '_line_tax_data' => serialize(['total' => [], 'subtotal' => []]),
+        ];
+        
+        foreach ($item_meta_data as $meta_key => $meta_value) {
+            $wpdb->insert(
+                $wpdb->prefix . 'woocommerce_order_itemmeta',
+                [
+                    'order_item_id' => $order_item_id,
+                    'meta_key'      => $meta_key,
+                    'meta_value'    => $meta_value
+                ]
+            );
+        }
+        
+        // 添加到訂單商品查詢表
+        $product_date = date('Y-m-d H:i:s', strtotime($date));
+        $wpdb->insert(
+            $wpdb->prefix . 'wc_order_product_lookup',
+            [
+                'order_item_id'         => $order_item_id,
+                'order_id'              => $order_id,
+                'product_id'            => $product_id,
+                'variation_id'          => 0,
+                'customer_id'           => 0,
+                'date_created'          => $product_date,
+                'product_qty'           => $item_qty,
+                'product_net_revenue'   => $item_total,
+                'product_gross_revenue' => $item_total,
+                'coupon_amount'         => 0,
+                'tax_amount'            => 0,
+                'shipping_amount'       => 0,
+                'shipping_tax_amount'   => 0,
+            ]
+        );
+    }
+    
+    // 7. 添加運費
+    $shipping_cost = rand(60, 200);
+    $order_total += $shipping_cost;
+    
+    $wpdb->insert(
+        $wpdb->prefix . 'woocommerce_order_items',
+        [
+            'order_id' => $order_id,
+            'order_item_name' => '標準運送',
+            'order_item_type' => 'shipping'
+        ]
+    );
+    
+    $shipping_item_id = $wpdb->insert_id;
+    
+    $shipping_meta_data = [
+        'method_id' => 'flat_rate',
+        'instance_id' => '1',
+        'cost' => $shipping_cost,
+        'total_tax' => 0,
+        'taxes' => serialize([]),
+        'method_title' => '標準運送'
+    ];
+    
+    foreach ($shipping_meta_data as $meta_key => $meta_value) {
+        $wpdb->insert(
+            $wpdb->prefix . 'woocommerce_order_itemmeta',
+            [
+                'order_item_id' => $shipping_item_id,
+                'meta_key'      => $meta_key,
+                'meta_value'    => $meta_value
+            ]
+        );
+    }
+    
+    // 8. 更新訂單總金額
+    $wpdb->update(
+        $wpdb->prefix . 'wc_orders',
+        [
+            'total_amount' => $order_total
+        ],
+        [
+            'id' => $order_id
+        ]
+    );
+    
+    // 更新訂單操作數據中的運費
+    $wpdb->update(
+        $wpdb->prefix . 'wc_order_operational_data',
+        [
+            'shipping_total_amount' => $shipping_cost
+        ],
+        [
+            'order_id' => $order_id
+        ]
+    );
+    
+    // 9. 添加到訂單統計表
+    $wpdb->insert(
+        $wpdb->prefix . 'wc_order_stats',
+        [
+            'order_id'           => $order_id,
+            'parent_id'          => 0,
+            'date_created'       => $date,
+            'date_created_gmt'   => $date_gmt,
+            'date_paid'          => $status == 'completed' ? $date : null,
+            'date_paid_gmt'      => $status == 'completed' ? $date_gmt : null,
+            'date_completed'     => $status == 'completed' ? date('Y-m-d H:i:s', strtotime($date) + rand(7200, 86400 * 5)) : null,
+            'date_completed_gmt' => $status == 'completed' ? date('Y-m-d H:i:s', strtotime($date_gmt) + rand(7200, 86400 * 5)) : null,
+            'num_items_sold'     => $item_count,
+            'total_sales'        => $order_total,
+            'tax_total'          => 0,
+            'shipping_total'     => $shipping_cost,
+            'net_total'          => $order_total - $shipping_cost,
+            'returning_customer' => 0,
+            'status'             => $status,
+            'customer_id'        => 0,
+        ]
+    );
+    
+    return $order_id;
+}
+
+/**
+ * 多進程直接操作數據庫生成訂單 (支援 HPOS)
+ * 
+ * @param array $product_ids 可用的商品ID
+ * @param int $start_index 開始索引
+ * @param int $count 要生成的訂單數量
+ * @param int $process_id 進程ID
+ * @return int 成功生成的訂單數量
+ */
+function process_generate_orders_direct_db_hpos($product_ids, $start_index, $count, $process_id) {
+    $orders_created = 0;
+    
+    for ($i = 0; $i < $count; $i++) {
+        $order_id = create_order_direct_db_hpos($product_ids);
+        if ($order_id) {
+            $orders_created++;
+        }
+    }
+    
+    return $orders_created;
+}
+
+/**
+ * 檢測 WooCommerce 是否使用 HPOS（高性能訂單存儲）
+ */
+function is_using_hpos() {
+    global $wpdb;
+    
+    // 檢查 wp_wc_orders 表是否存在
+    $table_exists = $wpdb->get_var("SHOW TABLES LIKE '{$wpdb->prefix}wc_orders'");
+    
+    return !empty($table_exists);
+}
+
+// 修改主執行函數，支持 HPOS
+function generate_woocommerce_orders_multi_db($num_orders = 1000, $num_processes = 4, $use_direct_db = true) {
+    global $wpdb;
+    $start_time = microtime(true);
+    
+    // 檢測是否使用 HPOS
+    $using_hpos = is_using_hpos();
+    
+    // 確保進程數量合理
+    $num_processes = max(1, min($num_processes, 32));
+    
+    // 獲取可用的商品ID列表
+    $product_ids = get_available_product_ids(100);
+    
+    // 計算每個進程需要處理的訂單數量
+    $orders_per_process = ceil($num_orders / $num_processes);
+    
+    // 存儲子進程的PID
+    $child_pids = [];
+    
+    // 創建進程
+    for ($i = 0; $i < $num_processes; $i++) {
+        $start_index = $i * $orders_per_process;
+        $count = min($orders_per_process, $num_orders - $start_index);
+        
+        if ($count <= 0) {
+            break; // 沒有更多訂單需要處理
+        }
+        
+        // 創建子進程
+        $pid = pcntl_fork();
+        
+        if ($pid == -1) {
+            // 進程創建失敗，靜默繼續
+            continue;
+        } elseif ($pid == 0) {
+            // 子進程代碼
+            if ($use_direct_db) {
+                if ($using_hpos) {
+                    $orders_created = process_generate_orders_direct_db_hpos($product_ids, $start_index, $count, $i);
+                } else {
+                    $orders_created = process_generate_orders_direct_db($product_ids, $start_index, $count, $i);
+                }
+            } else {
+                $orders_created = process_generate_orders($product_ids, $start_index, $count, $i);
+            }
+            
+            // 子進程完成後退出
+            exit($orders_created);
+        } else {
+            // 父進程代碼，記錄子進程的PID
+            $child_pids[$i] = $pid;
+        }
+    }
+    
+    // 父進程等待所有子進程完成
+    $total_orders_created = 0;
+    
+    foreach ($child_pids as $process_id => $pid) {
+        $status = 0;
+        pcntl_waitpid($pid, $status);
+        
+        if (pcntl_wifexited($status)) {
+            $orders_created = pcntl_wexitstatus($status);
+            $total_orders_created += $orders_created;
+        }
+    }
+    
+    return $total_orders_created;
+}
+
+// 解析命令行參數 (如果有)
+$num_orders = 1000;     // 預設生成1000個訂單
+$num_processes = 4;     // 預設使用4個進程
+$use_direct_db = true;  // 預設使用直接數據庫操作 (更高效)
 
 if (isset($argv) && count($argv) > 1) {
-    // 如果指定了商品數量
+    // 如果指定了訂單數量
     if (isset($argv[1]) && is_numeric($argv[1])) {
-        $num_products = (int)$argv[1];
+        $num_orders = (int)$argv[1];
     }
     
     // 如果指定了進程數量
     if (isset($argv[2]) && is_numeric($argv[2])) {
         $num_processes = (int)$argv[2];
     }
+    
+    // 如果指定了操作模式
+    if (isset($argv[3]) && $argv[3] === 'api') {
+        $use_direct_db = false;
+    }
 }
 
 // 執行多進程生成程序 (靜默模式)
-generate_woocommerce_products_multi($num_products, $num_processes); 
+generate_woocommerce_orders_multi_db($num_orders, $num_processes, $use_direct_db);
