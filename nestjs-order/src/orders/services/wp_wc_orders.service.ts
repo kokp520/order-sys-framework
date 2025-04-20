@@ -1,7 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { WpWcOrders } from '../entities/wp_wc_orders.entity';
+import { CreateOrderDto } from '../dto/create-order.dto';
+import { UpdateOrderDto } from '../dto/update-order.dto';
 
 @Injectable()
 export class WpWcOrdersService {
@@ -25,13 +27,6 @@ export class WpWcOrdersService {
     });
   }
 
-  async findByStatus(status: string): Promise<WpWcOrders[]> {
-    return this.wcOrdersRepository.find({ 
-      where: { status }, 
-      relations: ['orderItems', 'orderItems.meta'] 
-    });
-  }
-
   async findByCustomerId(customerId: number): Promise<WpWcOrders[]> {
     return this.wcOrdersRepository.find({ 
       where: { customerId }, 
@@ -39,17 +34,23 @@ export class WpWcOrdersService {
     });
   }
 
-  // async findOrdersByItemMetaKey(metaKey: string, metaValue?: string): Promise<WcOrder[]> {
-  //   const queryBuilder = this.wcOrdersRepository
-  //     .createQueryBuilder('order')
-  //     .leftJoinAndSelect('order.orderItems', 'orderItems')
-  //     .leftJoinAndSelect('orderItems.meta', 'itemMeta')
-  //     .where('itemMeta.metaKey = :metaKey', { metaKey });
-    
-  //   if (metaValue) {
-  //     queryBuilder.andWhere('itemMeta.metaValue = :metaValue', { metaValue });
-  //   }
-    
-  //   return queryBuilder.getMany();
-  // }
+  // update 
+  async update(id: number, updateOrderDto: UpdateOrderDto): Promise<WpWcOrders> {
+    const order = await this.findOne(id);
+    if (!order) {
+      throw new NotFoundException('Order not found');
+    }
+    return this.wcOrdersRepository.save({ ...order, ...updateOrderDto });
+  }
+
+  // delete 
+  async delete(id: number): Promise<{ affected?: number }> {
+    const result = await this.wcOrdersRepository.delete(id);
+    return result;
+  }
+
+  // post : new order
+  async create(createOrderDto: CreateOrderDto): Promise<WpWcOrders> {
+    return this.wcOrdersRepository.save(createOrderDto);
+  }
 } 
