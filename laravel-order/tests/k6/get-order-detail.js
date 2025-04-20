@@ -5,7 +5,7 @@ import { randomIntBetween } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
 // 以下是預先準備的訂單ID樣本，如果您有實際可用的ID，可以替換這些
 // 在實際運行之前，您需要確保這些ID存在於系統中
-const sampleOrderIds = [1, 2, 3, 4, 5]; // 改為您系統中實際存在的訂單ID
+const sampleOrderIds = [3256599, 3256598, 3256597, 3256596, 3256595]; // 改為您系統中實際存在的訂單ID
 
 // 獲取訂單詳情的測試
 export default function(data) {

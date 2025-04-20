@@ -7,16 +7,17 @@ export const config = {
   },
   // 負載配置
   stages: [
-    { duration: '30s', target: 5 },    // 熱身階段：30秒內增加到5個虛擬用戶
-    { duration: '1m', target: 10 },    // 穩定負載：1分鐘內增加到10個虛擬用戶
-    { duration: '2m', target: 20 },    // 中等壓力：2分鐘內增加到20個虛擬用戶
-    { duration: '1m', target: 30 },    // 高壓階段：1分鐘內增加到30個虛擬用戶
-    { duration: '30s', target: 0 },    // 緩和階段：30秒內降至0
+    // { duration: '1m', target: 100 },    // 熱身階段：30秒內增加到5個虛擬用戶
+    // { duration: '5m', target: 100 },    // 穩定負載：1分鐘內增加到10個虛擬用戶
+    // { duration: '30s', target: 0 },    // 緩和階段：30秒內降至0
+    { duration: '1m', target: 100 },   // 逐步增加到 100 用戶
+    { duration: '5m', target: 200 },   // 增加到 200 用戶
+    { duration: '5m', target: 0 },     // 逐步減少到 0
   ],
-  // 不同API端點的測試配置（可根據特定API進行調整）
+
   endpoints: {
     getOrders: {
-      weight: 30, // 權重，代表該端點在總測試中的佔比
+      weight: 30,
     },
     createOrder: {
       weight: 20,

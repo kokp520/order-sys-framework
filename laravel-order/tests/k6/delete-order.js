@@ -5,7 +5,7 @@ import { randomIntBetween } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
 // 以下是預先準備的訂單ID樣本，用於刪除測試
 // 注意：這些ID應該是可刪除的測試數據，不是生產環境重要數據
-const deletableOrderIds = [101, 102, 103, 104, 105]; // 改為您系統中可刪除的測試訂單ID
+const deletableOrderIds = [325604, 325603, 325602, 325601, 325600]; // 改為您系統中可刪除的測試訂單ID
 
 // 刪除訂單的測試
 export default function(data) {
