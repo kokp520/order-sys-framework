@@ -7,11 +7,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// group, order 
+// order 
 Route::group(['prefix' => 'order'], function () {
     Route::get('/', [OrderController::class, 'index']);
-    Route::post('/', [OrderController::class, 'store']);
     Route::get('/{order}', [OrderController::class, 'show']);
+    Route::post('/', [OrderController::class, 'store']);
     Route::put('/{order}', [OrderController::class, 'update']);
     Route::delete('/{order}', [OrderController::class, 'destroy']);
 });

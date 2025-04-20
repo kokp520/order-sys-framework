@@ -1,23 +1,11 @@
 <?php
 
 use App\Http\Controllers\OrderController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-// 訂單 API 路由
-Route::apiResource('orders', OrderController::class); 
+// 方法一：單獨定義路由
+Route::get('/order', [OrderController::class, 'index']);
+Route::post('/order', [OrderController::class, 'store']);
+Route::get('/order/{order}', [OrderController::class, 'show']);
+Route::put('/order/{order}', [OrderController::class, 'update']);
+Route::delete('/order/{order}', [OrderController::class, 'destroy']);

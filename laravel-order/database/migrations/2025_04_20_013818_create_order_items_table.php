@@ -16,6 +16,11 @@ return new class extends Migration
             $table->text('order_item_name');
             $table->string('order_item_type', 200);
             $table->unsignedBigInteger('order_id');
+            $table->decimal('price', 26, 8)->nullable();
+            $table->integer('quantity')->default(1);
+            $table->decimal('subtotal', 26, 8)->nullable();
+            $table->decimal('tax_amount', 26, 8)->nullable();
+            $table->decimal('total', 26, 8)->nullable();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->timestamps();
         });
