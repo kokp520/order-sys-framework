@@ -20,47 +20,29 @@ export function teardown(data) {
 
 // 主測試函數
 export default function(data) {
-  // 根據配置的權重決定要執行哪個測試
-  const rand = Math.random() * 100;
-  let currentWeight = 0;
+  // 按順序執行所有測試，不使用權重
   
-  // 獲取訂單列表 (權重 30%)
-  currentWeight += config.endpoints.getOrders.weight;
-  if (rand < currentWeight) {
-    group('獲取訂單列表', function() {
-      getOrders();
-    });
-    return;
-  }
+  // 1. 獲取訂單列表
+  group('獲取訂單列表', function() {
+    getOrders();
+  });
   
-  // 創建訂單 (權重 20%)
-  currentWeight += config.endpoints.createOrder.weight;
-  if (rand < currentWeight) {
-    group('創建訂單', function() {
-      createOrder(data);
-    });
-    return;
-  }
+  // 2. 創建訂單
+  group('創建訂單', function() {
+    createOrder(data);
+  });
   
-  // 獲取訂單詳情 (權重 30%)
-  currentWeight += config.endpoints.getOrderDetail.weight;
-  if (rand < currentWeight) {
-    group('獲取訂單詳情', function() {
-      getOrderDetail(data);
-    });
-    return;
-  }
+  // 3. 獲取訂單詳情
+  group('獲取訂單詳情', function() {
+    getOrderDetail(data);
+  });
   
-  // 更新訂單 (權重 15%)
-  currentWeight += config.endpoints.updateOrder.weight;
-  if (rand < currentWeight) {
-    group('更新訂單', function() {
-      updateOrder(data);
-    });
-    return;
-  }
+  // 4. 更新訂單
+  group('更新訂單', function() {
+    updateOrder(data);
+  });
   
-  // 刪除訂單 (權重 5%)
+  // 5. 刪除訂單
   group('刪除訂單', function() {
     deleteOrder(data);
   });

@@ -17,12 +17,11 @@ export default function() {
   // 檢查結果
   check(response, {
     'Status is 200': (r) => r.status === 200,
-    'Response body is not empty': (r) => r.body.length > 0,
+    'Response body is not empty': (r) => r.body && r.body.length > 0,
     'Response is JSON': (r) => r.headers['Content-Type'] && r.headers['Content-Type'].includes('application/json'),
     'Response time is acceptable': (r) => r.timings.duration < 1000, // 響應時間少於1秒
   });
-  
-  // 添加間隔以避免過度壓力
+
   sleep(1);
 }
 

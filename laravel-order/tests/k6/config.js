@@ -15,21 +15,21 @@ export const config = {
     { duration: '5m', target: 0 },     // 逐步減少到 0
   ],
 
-  endpoints: {
-    getOrders: {
-      weight: 30,
-    },
-    createOrder: {
-      weight: 20,
-    },
-    getOrderDetail: {
-      weight: 30,
-    },
-    updateOrder: {
-      weight: 15,
-    },
-    deleteOrder: {
-      weight: 5,
-    }
-  }
+  // endpoints: {
+  //   getOrders: {
+  //     weight: 30,
+  //   },
+  //   createOrder: {
+  //     weight: 20,
+  //   },
+  //   getOrderDetail: {
+  //     weight: 30,
+  //   },
+  //   updateOrder: {
+  //     weight: 15,
+  //   },
+  //   deleteOrder: {
+  //     weight: 5,
+  //   }
+  // }
 }; 

@@ -14,9 +14,15 @@ export class WpWcOrdersService {
     // private wcOrderMetaRepository: Repository<WcOrderMeta>,
   ) { }
 
-  async findAll(): Promise<WpWcOrders[]> {
+  async findAll(page=1, limit=50): Promise<WpWcOrders[]> {
+    const skip = (page - 1) * limit;
     return this.wcOrdersRepository.find({ 
-      relations: ['orderItems', 'orderItems.meta'] 
+      relations: ['orderItems', 'orderItems.meta'],
+      skip : skip,
+      take: limit,
+      order: {
+        dateCreatedGmt: 'DESC'
+      }
     });
   }
 
